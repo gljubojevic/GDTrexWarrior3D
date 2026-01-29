@@ -1,3 +1,32 @@
 [gd_scene format=3 uid="uid://ccchxudnamfmu"]
 
-[node name="Node3D" type="Node3D" unique_id=1770237495]
+[ext_resource type="PackedScene" uid="uid://bb4o85msbd0nm" path="res://player/warrior.tscn" id="1_1qeyn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yud60"]
+height = 1.0
+radius = 475.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1qeyn"]
+top_radius = 500.0
+bottom_radius = 500.0
+height = 1.0
+radial_segments = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srbc2"]
+
+[node name="Root" type="Node3D" unique_id=1770237495]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=514386234]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1117371212]
+shape = SubResource("CylinderShape3D_yud60")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1357076445]
+mesh = SubResource("CylinderMesh_1qeyn")
+surface_material_override/0 = SubResource("StandardMaterial3D_srbc2")
+
+[node name="Player" parent="." unique_id=1369698572 instance=ExtResource("1_1qeyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1604925813]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 500, 0)

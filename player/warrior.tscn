@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bb4o85msbd0nm"]
+
+[ext_resource type="PackedScene" uid="uid://dbruuci7f3wnm" path="res://models/light_fighter/light_fighter.gltf" id="1_hq7dw"]
+
+[node name="Player" type="Node3D" unique_id=1369698572]
+
+[node name="light_fighter" parent="." unique_id=1481560716 instance=ExtResource("1_hq7dw")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=523777214]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.5, 2.5)
