@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bvo8l1i8gqotq"]
+
+[ext_resource type="Texture2D" uid="uid://dcrnrdwrk71ke" path="res://models/drone_fighter/textures/Image_0.png" id="1_lsxr4"]
+[ext_resource type="Texture2D" uid="uid://dsjjyflexakqt" path="res://models/drone_fighter/textures/Image_2.png" id="2_d54fw"]
+[ext_resource type="Texture2D" uid="uid://d17jkik0rs6uu" path="res://models/drone_fighter/textures/Image_1.png" id="3_4p2w4"]
+[ext_resource type="Texture2D" uid="uid://ff6vwky1jr8x" path="res://models/drone_fighter/textures/Image_3.png" id="4_cwuo8"]
+
+[resource]
+resource_name = "Spaceship_1"
+cull_mode = 2
+albedo_texture = ExtResource("1_lsxr4")
+metallic = 1.0
+metallic_texture = ExtResource("3_4p2w4")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_4p2w4")
+roughness_texture_channel = 1
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.5570776
+emission_operator = 1
+emission_texture = ExtResource("2_d54fw")
+normal_enabled = true
+normal_texture = ExtResource("4_cwuo8")

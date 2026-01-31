@@ -51,10 +51,12 @@ func shoot_bullet():
 	const BULLET_3D = preload("uid://cd3uvgrh2l5nf")
 	# bullet for Gun1
 	var new_bullet = BULLET_3D.instantiate()
+	new_bullet.is_player_owner = true
 	%Gun1.add_child(new_bullet)
 	new_bullet.global_transform = %Gun1.global_transform
 	# bullet for Gun2
 	new_bullet = BULLET_3D.instantiate()
+	new_bullet.is_player_owner = true
 	%Gun2.add_child(new_bullet)
 	new_bullet.global_transform = %Gun2.global_transform
 	# auto fire timer
