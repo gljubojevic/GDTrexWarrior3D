@@ -2,12 +2,48 @@
 
 [ext_resource type="Script" uid="uid://b11ley6k5ymyy" path="res://player/warrior.gd" id="1_bup8o"]
 [ext_resource type="PackedScene" uid="uid://dbruuci7f3wnm" path="res://models/light_fighter/light_fighter.gltf" id="1_hq7dw"]
+[ext_resource type="Texture2D" uid="uid://it3cexmhmkw3" path="res://player/reticle.png" id="3_45q0i"]
 
-[node name="Player" type="Node3D" unique_id=1369698572]
+[sub_resource type="BoxShape3D" id="BoxShape3D_bup8o"]
+size = Vector3(11, 2, 9)
+
+[node name="Player" type="CharacterBody3D" unique_id=466323548]
 script = ExtResource("1_bup8o")
-
-[node name="light_fighter" parent="." unique_id=1481560716 instance=ExtResource("1_hq7dw")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=523777214]
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.5, 2.5)
+current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=651193975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_bup8o")
+
+[node name="light_fighter" parent="." unique_id=1481560716 instance=ExtResource("1_hq7dw")]
+
+[node name="Gun1" type="Marker3D" parent="light_fighter" unique_id=1621552862]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.525, 1.417, 5.2)
+
+[node name="Gun2" type="Marker3D" parent="light_fighter" unique_id=580524214]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.525, 1.417, 5.2)
+
+[node name="Reticle" type="TextureRect" parent="." unique_id=1622678810]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -77.0
+offset_right = 77.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_45q0i")
+
+[node name="Timer" type="Timer" parent="." unique_id=35728792]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
