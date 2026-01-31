@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bb4o85msbd0nm" path="res://player/warrior.tscn" id="1_1qeyn"]
 [ext_resource type="Material" uid="uid://cw6uehrj074ks" path="res://levels/arena_floor.tres" id="2_srbc2"]
+[ext_resource type="PackedScene" uid="uid://cqpyd6h3yhn56" path="res://enemies/drone.tscn" id="3_x3w1s"]
 
 [sub_resource type="Sky" id="Sky_1qeyn"]
 
@@ -39,3 +40,6 @@ environment = SubResource("Environment_srbc2")
 
 [node name="Player" parent="." unique_id=1369698572 instance=ExtResource("1_1qeyn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="drone" parent="." unique_id=832025884 instance=ExtResource("3_x3w1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.74935, 4.391803, -137.386)
