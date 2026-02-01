@@ -1,5 +1,8 @@
 extends RigidBody3D
 
+# define signal when enemy is dead
+signal died()
+
 @onready var drone_fighter: Node3D = %drone_fighter
 @onready var player: CharacterBody3D = get_node("/root/arena01/Player")
 @onready var timer: Timer = %Timer
@@ -37,8 +40,8 @@ func take_damage(value: float):
 	var direction = player.global_position.direction_to(global_position)
 	var random_upward_force = Vector3.UP * randf_range(5.0, 15.0)
 	apply_central_impulse(direction.rotated(Vector3.UP, randf_range(-0.2, 0.2)) * 20.0 + random_upward_force)
-	# start timer to remove
-	timer.start()
+	timer.start()	# start timer to remove
+	died.emit()		# emit when died
 
 # remove from scene
 func _on_timer_timeout() -> void:

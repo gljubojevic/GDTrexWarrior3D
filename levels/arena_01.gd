@@ -1,0 +1,20 @@
+extends Node3D
+
+@onready var label: Label = %Label
+var player_score:int = 0
+
+# Called when the node enters the scene tree for the first time.
+#func _ready() -> void:
+#	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+#	pass
+
+func increase_score():
+	player_score += 1
+	label.text = "Score: " + str(player_score)
+
+# track spawned enemies to capture signal when they are died
+func _on_enemy_spawner_3d_enemy_spawned(enemy) -> void:
+	enemy.died.connect(increase_score)
