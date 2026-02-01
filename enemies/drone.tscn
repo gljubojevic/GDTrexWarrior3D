@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d27hes2xiqcqy" path="res://enemies/drone.gd" id="1_25ryj"]
 [ext_resource type="PackedScene" uid="uid://c0d21oacj7p0q" path="res://models/drone_fighter/drone_fighter.tscn" id="2_25ryj"]
+[ext_resource type="AudioStream" uid="uid://ban4os64wmblb" path="res://sound/laser_hit.wav" id="3_rn4jc"]
+[ext_resource type="AudioStream" uid="uid://b3hd04gfxe2k6" path="res://sound/explosion.wav" id="4_uds7a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_25ryj"]
 size = Vector3(10, 3, 14)
@@ -32,5 +34,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.869, -1.459, 2.132)
 unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
+
+[node name="DamageSound" type="AudioStreamPlayer3D" parent="." unique_id=765509821]
+unique_name_in_owner = true
+stream = ExtResource("3_rn4jc")
+max_polyphony = 4
+
+[node name="DieSound" type="AudioStreamPlayer3D" parent="." unique_id=1119919049]
+unique_name_in_owner = true
+stream = ExtResource("4_uds7a")
+max_polyphony = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

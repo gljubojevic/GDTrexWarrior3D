@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set("mouse_mode", Input.MOUSE_MODE_CAPTURED)
@@ -59,6 +61,6 @@ func shoot_bullet():
 	new_bullet.is_player_owner = true
 	%Gun2.add_child(new_bullet)
 	new_bullet.global_transform = %Gun2.global_transform
-	# auto fire timer
-	%Timer.start()
+	%Timer.start()				# auto fire timer
+	%AudioStreamPlayer.play()	# Play sound
 	

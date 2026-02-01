@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b11ley6k5ymyy" path="res://player/warrior.gd" id="1_bup8o"]
 [ext_resource type="PackedScene" uid="uid://dbruuci7f3wnm" path="res://models/light_fighter/light_fighter.gltf" id="1_hq7dw"]
 [ext_resource type="Texture2D" uid="uid://it3cexmhmkw3" path="res://player/reticle.png" id="3_45q0i"]
+[ext_resource type="AudioStream" uid="uid://40bmnn48mlk5" path="res://sound/laser.wav" id="4_mlodu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bup8o"]
 size = Vector3(11, 2, 9)
@@ -47,3 +48,8 @@ texture = ExtResource("3_45q0i")
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1932610019]
+unique_name_in_owner = true
+stream = ExtResource("4_mlodu")
+max_polyphony = 4

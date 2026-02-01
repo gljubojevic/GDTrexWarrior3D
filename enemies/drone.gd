@@ -6,6 +6,8 @@ signal died()
 @onready var drone_fighter: Node3D = %drone_fighter
 @onready var player: CharacterBody3D = get_node("/root/arena01/Player")
 @onready var timer: Timer = %Timer
+@onready var damage_sound: AudioStreamPlayer3D = %DamageSound
+@onready var die_sound: AudioStreamPlayer3D = %DieSound
 
 var energy: float = 100.0
 var speed = randf_range(15.0, 20.0)
@@ -33,6 +35,7 @@ func take_damage(value: float):
 	energy -= value
 	if energy > 0:
 		drone_fighter.demage()	# start animation for
+		damage_sound.play()
 		return
 	# start die process with some animation
 	energy = 0
@@ -42,6 +45,7 @@ func take_damage(value: float):
 	apply_central_impulse(direction.rotated(Vector3.UP, randf_range(-0.2, 0.2)) * 20.0 + random_upward_force)
 	timer.start()	# start timer to remove
 	died.emit()		# emit when died
+	die_sound.play()
 
 # remove from scene
 func _on_timer_timeout() -> void:
