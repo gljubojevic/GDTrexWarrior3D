@@ -47,10 +47,10 @@ _data = {
 [node name="drone_fighter2" unique_id=1683454267 instance=ExtResource("1_l8kyl")]
 script = ExtResource("2_4h3cr")
 
-[node name="Armor_Spaceship_1_0" parent="drone_fighter/f603b329e98b4b9c96093944d6caf042_fbx/RootNode/Armor" parent_id_path=PackedInt32Array(1168650497) index="0" unique_id=1640981989]
+[node name="Armor_Spaceship_1_0" parent="drone_fighter/f603b329e98b4b9c96093944d6caf042_fbx/RootNode/Armor" parent_id_path=PackedInt32Array(999479793) index="0" unique_id=899539740]
 surface_material_override/0 = ExtResource("2_qf0es")
 
-[node name="Ship_Body_Spaceship_1_0" parent="drone_fighter/f603b329e98b4b9c96093944d6caf042_fbx/RootNode/Ship_Body" parent_id_path=PackedInt32Array(587343229) index="0" unique_id=983612824]
+[node name="Ship_Body_Spaceship_1_0" parent="drone_fighter/f603b329e98b4b9c96093944d6caf042_fbx/RootNode/Ship_Body" parent_id_path=PackedInt32Array(315695505) index="0" unique_id=13497170]
 surface_material_override/0 = ExtResource("2_qf0es")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=461750555]

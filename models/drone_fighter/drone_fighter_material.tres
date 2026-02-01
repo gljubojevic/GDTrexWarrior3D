@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ff6vwky1jr8x" path="res://models/drone_fighter/textures/Image_3.png" id="4_cwuo8"]
 
 [resource]
+resource_local_to_scene = true
 resource_name = "Spaceship_1"
 cull_mode = 2
 albedo_texture = ExtResource("1_lsxr4")
