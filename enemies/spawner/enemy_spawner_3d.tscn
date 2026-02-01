@@ -1,21 +1,38 @@
 [gd_scene format=3 uid="uid://ckfkem13rb4r3"]
 
 [ext_resource type="Script" uid="uid://dxgxljjnc7sb" path="res://enemies/spawner/enemy_spawner_3d.gd" id="1_60ia2"]
+[ext_resource type="Material" uid="uid://djawg61r3e3to" path="res://enemies/spawner/rim_standard_material_3d.tres" id="2_gbxjt"]
+[ext_resource type="Material" uid="uid://dswf2a2wwqgco" path="res://enemies/spawner/teleport_shader_material.tres" id="2_yj1l8"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_e4c33"]
 inner_radius = 18.0
 outer_radius = 20.0
-rings = 8
-ring_segments = 6
+ring_segments = 10
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_60ia2"]
+top_radius = 18.0
+bottom_radius = 18.0
+height = 20.0
+rings = 1
+cap_top = false
+cap_bottom = false
 
 [node name="EnemySpawner3D" type="Node3D" unique_id=2145415073]
 script = ExtResource("1_60ia2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1995340126]
+[node name="Rim" type="MeshInstance3D" parent="." unique_id=1995340126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 mesh = SubResource("TorusMesh_e4c33")
+surface_material_override/0 = ExtResource("2_gbxjt")
+
+[node name="Teleport" type="MeshInstance3D" parent="Rim" unique_id=1820657720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+material_override = ExtResource("2_yj1l8")
+mesh = SubResource("CylinderMesh_60ia2")
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1991972380]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=497025106]
 unique_name_in_owner = true

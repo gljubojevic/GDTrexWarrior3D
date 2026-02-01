@@ -17,7 +17,7 @@ var speed = randf_range(15.0, 20.0)
 
 func _physics_process(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
-	#direction.y = 0.0
+	direction.y = 0.0
 	linear_velocity = direction * speed
 	drone_fighter.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
 
