@@ -7,6 +7,8 @@ signal enemy_spawned(enemy)
 @export var enemy_to_spawn: PackedScene = null
 # marker where to create new enemy
 @onready var marker_3d: Marker3D = %Marker3D
+# sound player for spawned sounds
+@onready var spawned_sound: AudioStreamPlayer3D = $SpawnedSound
 
 # Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
@@ -22,3 +24,4 @@ func _on_timer_timeout() -> void:
 	new_enemy.global_position = marker_3d.global_position
 	# emit signal for new enemy
 	enemy_spawned.emit(new_enemy)
+	spawned_sound.play()

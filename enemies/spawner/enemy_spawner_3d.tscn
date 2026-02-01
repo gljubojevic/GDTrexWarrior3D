@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dxgxljjnc7sb" path="res://enemies/spawner/enemy_spawner_3d.gd" id="1_60ia2"]
 [ext_resource type="Material" uid="uid://djawg61r3e3to" path="res://enemies/spawner/rim_standard_material_3d.tres" id="2_gbxjt"]
 [ext_resource type="Material" uid="uid://dswf2a2wwqgco" path="res://enemies/spawner/teleport_shader_material.tres" id="2_yj1l8"]
+[ext_resource type="AudioStream" uid="uid://d1tjwixq8yycd" path="res://sound/teleport.wav" id="4_52bae"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_e4c33"]
 inner_radius = 18.0
@@ -38,5 +39,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 unique_name_in_owner = true
 wait_time = 5.0
 autostart = true
+
+[node name="SpawnedSound" type="AudioStreamPlayer3D" parent="." unique_id=28835168]
+stream = ExtResource("4_52bae")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
