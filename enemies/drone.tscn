@@ -27,3 +27,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8687568, -1.4590906, 2.131
 
 [node name="Gun4" type="Marker3D" parent="drone_fighter" unique_id=1975603074]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.869, -1.459, 2.132)
+
+[node name="Timer" type="Timer" parent="." unique_id=656585676]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
