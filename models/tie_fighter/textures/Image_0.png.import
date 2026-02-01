@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cp1nfhihgmbp"
 path.s3tc="res://.godot/imported/Image_0.png-393f0ba84c35d04cace145c05ae98203.s3tc.ctex"
+path.etc2="res://.godot/imported/Image_0.png-393f0ba84c35d04cace145c05ae98203.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://models/tie_fighter/textures/Image_0.png"
-dest_files=["res://.godot/imported/Image_0.png-393f0ba84c35d04cace145c05ae98203.s3tc.ctex"]
+dest_files=["res://.godot/imported/Image_0.png-393f0ba84c35d04cace145c05ae98203.s3tc.ctex", "res://.godot/imported/Image_0.png-393f0ba84c35d04cace145c05ae98203.etc2.ctex"]
 
 [params]
 

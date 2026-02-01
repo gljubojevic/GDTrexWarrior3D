@@ -5,10 +5,10 @@
 .DS_Store
 
 # Build folders
-build/Mac/*
-!build/Mac/README.md
-build/Web/*
-!build/Web/README.md
-!build/Web/coi-serviceworker.js
-build/Win/*
-!build/Win/README.md
+build/mac/*
+!build/mac/README.md
+build/web/*
+!build/web/README.md
+!build/web/coi-serviceworker.js
+build/windows/*
+!build/windows/README.md

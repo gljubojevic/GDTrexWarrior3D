@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://n4ufg8nvgvh3"
 path.s3tc="res://.godot/imported/WINGS_emissive.png-cbdebdf34cf5fdf4ffdf53eec1d57e2d.s3tc.ctex"
+path.etc2="res://.godot/imported/WINGS_emissive.png-cbdebdf34cf5fdf4ffdf53eec1d57e2d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://models/light_fighter/Textures/WINGS_emissive.png"
-dest_files=["res://.godot/imported/WINGS_emissive.png-cbdebdf34cf5fdf4ffdf53eec1d57e2d.s3tc.ctex"]
+dest_files=["res://.godot/imported/WINGS_emissive.png-cbdebdf34cf5fdf4ffdf53eec1d57e2d.s3tc.ctex", "res://.godot/imported/WINGS_emissive.png-cbdebdf34cf5fdf4ffdf53eec1d57e2d.etc2.ctex"]
 
 [params]
 

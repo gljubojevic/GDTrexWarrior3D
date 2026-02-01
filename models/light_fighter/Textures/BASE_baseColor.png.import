@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://va7xklae6s02"
 path.s3tc="res://.godot/imported/BASE_baseColor.png-7943a98a94d03efcf69ae4b1ec6d7f5f.s3tc.ctex"
+path.etc2="res://.godot/imported/BASE_baseColor.png-7943a98a94d03efcf69ae4b1ec6d7f5f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://models/light_fighter/Textures/BASE_baseColor.png"
-dest_files=["res://.godot/imported/BASE_baseColor.png-7943a98a94d03efcf69ae4b1ec6d7f5f.s3tc.ctex"]
+dest_files=["res://.godot/imported/BASE_baseColor.png-7943a98a94d03efcf69ae4b1ec6d7f5f.s3tc.ctex", "res://.godot/imported/BASE_baseColor.png-7943a98a94d03efcf69ae4b1ec6d7f5f.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccrmulf301kyj"
 path.s3tc="res://.godot/imported/BASE_normal.png-ad87132b46064f512484b928533e2c29.s3tc.ctex"
+path.etc2="res://.godot/imported/BASE_normal.png-ad87132b46064f512484b928533e2c29.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://models/light_fighter/Textures/BASE_normal.png"
-dest_files=["res://.godot/imported/BASE_normal.png-ad87132b46064f512484b928533e2c29.s3tc.ctex"]
+dest_files=["res://.godot/imported/BASE_normal.png-ad87132b46064f512484b928533e2c29.s3tc.ctex", "res://.godot/imported/BASE_normal.png-ad87132b46064f512484b928533e2c29.etc2.ctex"]
 
 [params]
 

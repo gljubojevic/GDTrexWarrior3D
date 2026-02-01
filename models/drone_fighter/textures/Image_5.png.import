@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3egnbswow1kq"
 path.s3tc="res://.godot/imported/Image_5.png-1b7601f78a0ee2be91ce0e14b095e920.s3tc.ctex"
+path.etc2="res://.godot/imported/Image_5.png-1b7601f78a0ee2be91ce0e14b095e920.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://models/drone_fighter/textures/Image_5.png"
-dest_files=["res://.godot/imported/Image_5.png-1b7601f78a0ee2be91ce0e14b095e920.s3tc.ctex"]
+dest_files=["res://.godot/imported/Image_5.png-1b7601f78a0ee2be91ce0e14b095e920.s3tc.ctex", "res://.godot/imported/Image_5.png-1b7601f78a0ee2be91ce0e14b095e920.etc2.ctex"]
 
 [params]
 
