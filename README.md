@@ -7,3 +7,4 @@ Demo: https://gljubojevic.github.io/GDTrexWarrior3D/
 - Godot 3D Tutorial Part 1: https://www.youtube.com/watch?v=NJJNWGD25rg
 - Amiga Trex Warrior: https://www.youtube.com/watch?v=3BwDBHzHIqc
 - [godot-ci - build on github](https://github.com/abarichello/godot-ci)
+- Sound effects from https://pixabay.com/
