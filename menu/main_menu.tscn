@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://djhfge2bo4nfh"]
+
+[ext_resource type="FontFile" uid="uid://rkfjqnqlunle" path="res://fonts/spacerangerbold.ttf" id="1_chmv6"]
+[ext_resource type="PackedScene" uid="uid://dbruuci7f3wnm" path="res://models/light_fighter/light_fighter.gltf" id="2_f5okj"]
+
+[sub_resource type="TextMesh" id="TextMesh_f5okj"]
+text = "TREX WARRIOR"
+font = ExtResource("1_chmv6")
+font_size = 18
+
+[sub_resource type="TextMesh" id="TextMesh_chmv6"]
+text = "START"
+font = ExtResource("1_chmv6")
+font_size = 24
+
+[sub_resource type="TextMesh" id="TextMesh_o5w3e"]
+text = "QUIT"
+font = ExtResource("1_chmv6")
+font_size = 22
+
+[node name="MainMenu" type="Node3D" unique_id=521988686]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1419309994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1715489075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("TextMesh_f5okj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=596692615]
+mesh = SubResource("TextMesh_chmv6")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1610202262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+mesh = SubResource("TextMesh_o5w3e")
+
+[node name="light_fighter" parent="." unique_id=1481560716 instance=ExtResource("2_f5okj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
