@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djhfge2bo4nfh"]
 
 [ext_resource type="FontFile" uid="uid://rkfjqnqlunle" path="res://fonts/spacerangerbold.ttf" id="1_chmv6"]
-[ext_resource type="PackedScene" uid="uid://dbruuci7f3wnm" path="res://models/light_fighter/light_fighter.gltf" id="2_f5okj"]
+[ext_resource type="PackedScene" uid="uid://c6d3mbsi53fip" path="res://menu/player.tscn" id="1_f5okj"]
 
 [sub_resource type="TextMesh" id="TextMesh_f5okj"]
 text = "TREX WARRIOR"
@@ -17,44 +17,6 @@ font_size = 24
 text = "QUIT"
 font = ExtResource("1_chmv6")
 font_size = 22
-
-[sub_resource type="Animation" id="Animation_f5okj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.5235988, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_o5w3e"]
-resource_name = "menu_player_anim"
-length = 16.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 16),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.43633232, 0, 0), Vector3(0.43633232, 6.2831855, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1x3cv"]
-_data = {
-&"RESET": SubResource("Animation_f5okj"),
-&"menu_player_anim": SubResource("Animation_o5w3e")
-}
 
 [node name="MainMenu" type="Node3D" unique_id=521988686]
 
@@ -72,12 +34,8 @@ mesh = SubResource("TextMesh_chmv6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 mesh = SubResource("TextMesh_o5w3e")
 
-[node name="light_fighter" parent="." unique_id=1481560716 instance=ExtResource("2_f5okj")]
-transform = Transform3D(0.6, 0, 0, 0, 0.51961523, -0.3, 0, 0.3, 0.51961523, 0, 0, -4)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="light_fighter" unique_id=1615064009]
-libraries/ = SubResource("AnimationLibrary_1x3cv")
-autoplay = &"menu_player_anim"
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1021685375]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="light_fighter" parent="." unique_id=1481560716 instance=ExtResource("1_f5okj")]
+transform = Transform3D(0.7, 0, 0, 0, 0.63441545, -0.2958328, 0, 0.2958328, 0.63441545, 0, 0, -4)
