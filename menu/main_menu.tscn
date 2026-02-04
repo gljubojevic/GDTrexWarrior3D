@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://rkfjqnqlunle" path="res://fonts/spacerangerbold.ttf" id="1_chmv6"]
 [ext_resource type="PackedScene" uid="uid://c6d3mbsi53fip" path="res://menu/player.tscn" id="1_f5okj"]
+[ext_resource type="Material" uid="uid://byngx1ovkts3" path="res://menu/logo_material.tres" id="1_o5w3e"]
 
 [sub_resource type="TextMesh" id="TextMesh_f5okj"]
 text = "TREX WARRIOR"
@@ -25,6 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 
 [node name="Logo" type="MeshInstance3D" parent="." unique_id=1715489075]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+material_override = ExtResource("1_o5w3e")
 mesh = SubResource("TextMesh_f5okj")
 
 [node name="Start" type="MeshInstance3D" parent="." unique_id=596692615]
@@ -38,4 +40,4 @@ mesh = SubResource("TextMesh_o5w3e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="light_fighter" parent="." unique_id=1481560716 instance=ExtResource("1_f5okj")]
-transform = Transform3D(0.7, 0, 0, 0, 0.63441545, -0.2958328, 0, 0.2958328, 0.63441545, 0, 0, -4)
+transform = Transform3D(0.7, 0, 0, 0, 0.63441545, -0.29583278, 0, 0.29583278, 0.63441545, 0, 0, -4)
