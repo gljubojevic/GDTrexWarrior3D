@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b2hk8xm2wxuyf"]
 
 [ext_resource type="PackedScene" uid="uid://dax8mqs28vf1u" path="res://menu/Start.glb" id="1_o26ao"]
+[ext_resource type="Script" uid="uid://cwrhynyyexhrg" path="res://menu/start.gd" id="2_0jsfx"]
 [ext_resource type="Material" uid="uid://c5hyadm5gfy7v" path="res://menu/logo_metal_gray.tres" id="2_3tvsf"]
 
 [sub_resource type="Animation" id="Animation_3tvsf"]
@@ -45,10 +46,13 @@ _data = {
 }
 
 [node name="Start" unique_id=1804991050 instance=ExtResource("1_o26ao")]
+script = ExtResource("2_0jsfx")
 
 [node name="Trex" parent="." index="0" unique_id=567996886]
+unique_name_in_owner = true
 surface_material_override/0 = ExtResource("2_3tvsf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=2095467694]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_0jsfx")
 libraries/StartAnims = SubResource("AnimationLibrary_4ycsk")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://djhfge2bo4nfh"]
 
 [ext_resource type="PackedScene" uid="uid://c6d3mbsi53fip" path="res://menu/player.tscn" id="1_f5okj"]
+[ext_resource type="Script" uid="uid://c61krjui46xh6" path="res://menu/main_menu.gd" id="1_jc45y"]
 [ext_resource type="PackedScene" uid="uid://ble3pcxtxuv2j" path="res://menu/logo.tscn" id="2_1x3cv"]
 [ext_resource type="PackedScene" uid="uid://dbar3k4dicv32" path="res://menu/Quit.tscn" id="2_jc45y"]
 [ext_resource type="PackedScene" uid="uid://b2hk8xm2wxuyf" path="res://menu/Start.tscn" id="4_jc45y"]
@@ -51,6 +52,7 @@ _data = {
 }
 
 [node name="MainMenu" type="Node3D" unique_id=521988686]
+script = ExtResource("1_jc45y")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1419309994]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8)
@@ -65,12 +67,14 @@ transform = Transform3D(3, 0, 0, 0, 2.7189233, -1.2678548, 0, 1.2678548, 2.71892
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Quit" parent="Menu" unique_id=1699965777 instance=ExtResource("2_jc45y")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 
 [node name="Logo" parent="Menu" unique_id=374442392 instance=ExtResource("2_1x3cv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Start" parent="Menu" unique_id=1804991050 instance=ExtResource("4_jc45y")]
+unique_name_in_owner = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=389196070]
 environment = SubResource("Environment_1x3cv")

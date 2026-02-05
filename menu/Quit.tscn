@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbar3k4dicv32"]
 
 [ext_resource type="PackedScene" uid="uid://dg7yxuybkh5yv" path="res://menu/Quit.glb" id="1_rq2vq"]
+[ext_resource type="Script" uid="uid://cyt7xgnjaou23" path="res://menu/quit.gd" id="2_5taw3"]
 [ext_resource type="Material" uid="uid://c5hyadm5gfy7v" path="res://menu/logo_metal_gray.tres" id="2_jppwd"]
 
 [sub_resource type="Animation" id="Animation_jppwd"]
@@ -45,10 +46,13 @@ _data = {
 }
 
 [node name="Quit" unique_id=1699965777 instance=ExtResource("1_rq2vq")]
+script = ExtResource("2_5taw3")
 
 [node name="Trex" parent="." index="0" unique_id=1753402801]
+unique_name_in_owner = true
 surface_material_override/0 = ExtResource("2_jppwd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=914161828]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_5taw3")
 libraries/QuitAnim = SubResource("AnimationLibrary_6mceg")
