@@ -1,43 +1,86 @@
 [gd_scene format=3 uid="uid://djhfge2bo4nfh"]
 
-[ext_resource type="FontFile" uid="uid://rkfjqnqlunle" path="res://fonts/spacerangerbold.ttf" id="1_chmv6"]
 [ext_resource type="PackedScene" uid="uid://c6d3mbsi53fip" path="res://menu/player.tscn" id="1_f5okj"]
-[ext_resource type="Material" uid="uid://byngx1ovkts3" path="res://menu/logo_material.tres" id="1_o5w3e"]
+[ext_resource type="PackedScene" uid="uid://ble3pcxtxuv2j" path="res://menu/logo.tscn" id="2_1x3cv"]
+[ext_resource type="PackedScene" uid="uid://dbar3k4dicv32" path="res://menu/Quit.tscn" id="2_jc45y"]
+[ext_resource type="PackedScene" uid="uid://b2hk8xm2wxuyf" path="res://menu/Start.tscn" id="4_jc45y"]
 
-[sub_resource type="TextMesh" id="TextMesh_f5okj"]
-text = "TREX WARRIOR"
-font = ExtResource("1_chmv6")
-font_size = 18
+[sub_resource type="Environment" id="Environment_1x3cv"]
+background_mode = 1
+background_color = Color(0.0019063628, 0.00024835469, 0.46187192, 1)
 
-[sub_resource type="TextMesh" id="TextMesh_chmv6"]
-text = "START"
-font = ExtResource("1_chmv6")
-font_size = 24
+[sub_resource type="Animation" id="Animation_1x3cv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.8902533, 3.041686, 1.0688105)]
+}
 
-[sub_resource type="TextMesh" id="TextMesh_o5w3e"]
-text = "QUIT"
-font = ExtResource("1_chmv6")
-font_size = 22
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jc45y"]
+_data = {
+&"RESET": SubResource("Animation_1x3cv")
+}
+
+[sub_resource type="Animation" id="Animation_s8mfa"]
+length = 16.066668
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OmniLight3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8.01, 16.066668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.367, 2, 1.069), Vector3(3.195, 0, 1.069), Vector3(-3.367, 2, 1.069)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0tw43"]
+_data = {
+&"light_move": SubResource("Animation_s8mfa")
+}
 
 [node name="MainMenu" type="Node3D" unique_id=521988686]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1419309994]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
-
-[node name="Logo" type="MeshInstance3D" parent="." unique_id=1715489075]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
-material_override = ExtResource("1_o5w3e")
-mesh = SubResource("TextMesh_f5okj")
-
-[node name="Start" type="MeshInstance3D" parent="." unique_id=596692615]
-mesh = SubResource("TextMesh_chmv6")
-
-[node name="Quit" type="MeshInstance3D" parent="." unique_id=1610202262]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-mesh = SubResource("TextMesh_o5w3e")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.8)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1021685375]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="light_fighter" parent="." unique_id=1481560716 instance=ExtResource("1_f5okj")]
-transform = Transform3D(0.7, 0, 0, 0, 0.63441545, -0.29583278, 0, 0.29583278, 0.63441545, 0, 0, -4)
+transform = Transform3D(3, 0, 0, 0, 2.7189233, -1.2678548, 0, 1.2678548, 2.7189233, 0, 0, -20)
+
+[node name="Menu" type="Node3D" parent="." unique_id=1051505438]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Quit" parent="Menu" unique_id=1699965777 instance=ExtResource("2_jc45y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+
+[node name="Logo" parent="Menu" unique_id=374442392 instance=ExtResource("2_1x3cv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Start" parent="Menu" unique_id=1804991050 instance=ExtResource("4_jc45y")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=389196070]
+environment = SubResource("Environment_1x3cv")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=305042004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8902533, 3.041686, 1.0688105)
+light_energy = 10.865
+light_size = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1303637070]
+libraries/ = SubResource("AnimationLibrary_jc45y")
+libraries/MenuAnims = SubResource("AnimationLibrary_0tw43")
+autoplay = &"MenuAnims/light_move"

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ble3pcxtxuv2j"]
+
+[ext_resource type="PackedScene" uid="uid://r67p4qo5s2oe" path="res://menu/Logo.glb" id="1_nmv45"]
+[ext_resource type="Material" uid="uid://c5hyadm5gfy7v" path="res://menu/logo_metal_gray.tres" id="2_d7jn8"]
+
+[node name="Logo" unique_id=374442392 instance=ExtResource("1_nmv45")]
+
+[node name="Trex" parent="." index="0" unique_id=535245099]
+surface_material_override/0 = ExtResource("2_d7jn8")
