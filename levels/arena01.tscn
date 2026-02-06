@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccchxudnamfmu"]
 
 [ext_resource type="PackedScene" uid="uid://bb4o85msbd0nm" path="res://player/warrior.tscn" id="1_1qeyn"]
-[ext_resource type="Script" uid="uid://c8xw5mwlmwxmm" path="res://levels/arena_01.gd" id="1_vktri"]
+[ext_resource type="Script" path="res://levels/arena_01.gd" id="1_vktri"]
 [ext_resource type="Material" uid="uid://cw6uehrj074ks" path="res://levels/arena_floor.tres" id="2_srbc2"]
 [ext_resource type="PackedScene" uid="uid://ckfkem13rb4r3" path="res://enemies/spawner/enemy_spawner_3d.tscn" id="3_fa7r7"]
 [ext_resource type="PackedScene" uid="uid://cqpyd6h3yhn56" path="res://enemies/drone.tscn" id="3_x3w1s"]
@@ -30,8 +30,12 @@ tonemap_mode = 2
 [node name="arena01" type="Node3D" unique_id=1770237495]
 script = ExtResource("1_vktri")
 
-[node name="EnemySpawner3D" parent="." unique_id=2145415073 instance=ExtResource("3_fa7r7")]
+[node name="EnemySpawner1" parent="." unique_id=2145415073 instance=ExtResource("3_fa7r7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.886, 0, -149.395)
+enemy_to_spawn = ExtResource("3_x3w1s")
+
+[node name="EnemySpawner2" parent="." unique_id=9138658 instance=ExtResource("3_fa7r7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.7127, 0, 129.7831)
 enemy_to_spawn = ExtResource("3_x3w1s")
 
 [node name="Label" type="Label" parent="." unique_id=643914298]
@@ -68,4 +72,5 @@ environment = SubResource("Environment_srbc2")
 [node name="Player" parent="." unique_id=1369698572 instance=ExtResource("1_1qeyn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[connection signal="enemy_spawned" from="EnemySpawner3D" to="." method="_on_enemy_spawner_3d_enemy_spawned"]
+[connection signal="enemy_spawned" from="EnemySpawner1" to="." method="_on_enemy_spawner_3d_enemy_spawned"]
+[connection signal="enemy_spawned" from="EnemySpawner2" to="." method="_on_enemy_spawner_3d_enemy_spawned"]

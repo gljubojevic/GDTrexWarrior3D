@@ -12,9 +12,14 @@ signal enemy_spawned(enemy)
 # sound player for spawned sounds
 @onready var spawned_sound: AudioStreamPlayer3D = $SpawnedSound
 
+# default timer wait to spawn new enemy
+const DEFAULT_SPAWN_WAIT:float = 5.0
+
 # Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-#	pass # Replace with function body.
+func _ready() -> void:
+	# randomize timer start and start it
+	%Timer.wait_time = randf_range(DEFAULT_SPAWN_WAIT/2, DEFAULT_SPAWN_WAIT)
+	%Timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
@@ -27,6 +32,9 @@ func enemy_died():
 	enemies_spawned -=1
 
 func _on_timer_timeout() -> void:
+	# restore default timer time
+	if %Timer.wait_time != DEFAULT_SPAWN_WAIT:
+		%Timer.wait_time = DEFAULT_SPAWN_WAIT
 	# check can we spawn new enemy
 	if enemies_spawned >= MAX_ACTIVE_ENEMIES:
 		return
