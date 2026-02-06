@@ -4,11 +4,16 @@ const SPEED = 20.0
 const RANGE = 150.0
 const DAMAGE = 10.0
 var traveled_distance = 0.0
+
+@onready var mesh_instance_3d: MeshInstance3D = %MeshInstance3D
+const GREEN_LASER = preload("uid://bpx8umbfplxok")
+
 var is_player_owner: bool = true
 
 # Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-#	pass # Replace with function body.
+func _ready() -> void:
+	if is_player_owner:
+		mesh_instance_3d.material_override = GREEN_LASER
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

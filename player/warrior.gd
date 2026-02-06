@@ -1,6 +1,14 @@
 extends CharacterBody3D
 
-@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+# define signal when player is dead
+signal died()
+
+@onready var shoot_sound: AudioStreamPlayer = %ShootSound
+@onready var damage_sound: AudioStreamPlayer = %DamageSound
+@onready var die_sound: AudioStreamPlayer = %DieSound
+
+# definable enargy for player
+@export var energy: float = 100.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,6 +69,20 @@ func shoot_bullet():
 	new_bullet.is_player_owner = true
 	%Gun2.add_child(new_bullet)
 	new_bullet.global_transform = %Gun2.global_transform
-	%Timer.start()				# auto fire timer
-	%AudioStreamPlayer.play()	# Play sound
+	%Timer.start()		# auto fire timer
+	shoot_sound.play()	# Play sound
 	
+# reduce energy when hit or die
+func take_damage(value: float):
+	# no more energy, no more damage
+	if energy == 0:
+		return
+	# do damage
+	energy -= value
+	if energy > 0:
+		damage_sound.play()
+		return
+	# start die process with some animation
+	energy = 0
+	died.emit()		# emit when died
+	die_sound.play()
