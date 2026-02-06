@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccchxudnamfmu"]
 
 [ext_resource type="PackedScene" uid="uid://bb4o85msbd0nm" path="res://player/warrior.tscn" id="1_1qeyn"]
-[ext_resource type="Script" path="res://levels/arena_01.gd" id="1_vktri"]
+[ext_resource type="Script" uid="uid://c8xw5mwlmwxmm" path="res://levels/arena_01.gd" id="1_vktri"]
 [ext_resource type="Material" uid="uid://cw6uehrj074ks" path="res://levels/arena_floor.tres" id="2_srbc2"]
 [ext_resource type="PackedScene" uid="uid://ckfkem13rb4r3" path="res://enemies/spawner/enemy_spawner_3d.tscn" id="3_fa7r7"]
 [ext_resource type="PackedScene" uid="uid://cqpyd6h3yhn56" path="res://enemies/drone.tscn" id="3_x3w1s"]
