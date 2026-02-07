@@ -2,8 +2,9 @@ extends Area3D
 
 const SPEED = 20.0
 const RANGE = 150.0
-const DAMAGE = 10.0
+const DAMAGE_MAX = 10.0
 var traveled_distance = 0.0
+var do_damage:float = DAMAGE_MAX
 
 @onready var mesh_instance_3d: MeshInstance3D = %MeshInstance3D
 const GREEN_LASER = preload("uid://bpx8umbfplxok")
@@ -13,7 +14,10 @@ var is_player_owner: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if is_player_owner:
+		do_damage = DAMAGE_MAX
 		mesh_instance_3d.material_override = GREEN_LASER
+	else:
+		do_damage = DAMAGE_MAX / 10
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
@@ -42,4 +46,4 @@ func _on_body_entered(body: Node3D):
 	# bullet hit something that is allowed
 	queue_free()		# remove bullet
 	if body.has_method("take_damage"):
-		body.take_damage(DAMAGE)
+		body.take_damage(do_damage)

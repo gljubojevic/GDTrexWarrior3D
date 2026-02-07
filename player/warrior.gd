@@ -94,19 +94,17 @@ func camera_position():
 		%Camera3D.position = third_person_pos
 		%Camera3D.rotation_degrees = third_person_rot
 
-func shoot_bullet():
+func shoot(gun:Marker3D):
 	# preload bullet scene on game start
 	const BULLET_3D = preload("uid://cd3uvgrh2l5nf")
-	# bullet for Gun1
 	var new_bullet = BULLET_3D.instantiate()
 	new_bullet.is_player_owner = true
-	%Gun1.add_child(new_bullet)
-	new_bullet.global_transform = %Gun1.global_transform
-	# bullet for Gun2
-	new_bullet = BULLET_3D.instantiate()
-	new_bullet.is_player_owner = true
-	%Gun2.add_child(new_bullet)
-	new_bullet.global_transform = %Gun2.global_transform
+	gun.add_child(new_bullet)
+	new_bullet.global_transform = gun.global_transform
+
+func shoot_bullet():
+	shoot(%Gun1)
+	shoot(%Gun2)
 	%Timer.start()		# auto fire timer
 	shoot_sound.play()	# Play sound
 	
