@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 # define signal when player is dead
 signal died()
+# define signal when player is hit
+signal hit()
 
 @onready var shoot_sound: AudioStreamPlayer = %ShootSound
 @onready var damage_sound: AudioStreamPlayer = %DamageSound
@@ -116,6 +118,7 @@ func take_damage(value: float):
 	# do damage
 	energy -= value
 	if energy > 0:
+		hit.emit()
 		damage_sound.play()
 		return
 	# start die process with some animation
