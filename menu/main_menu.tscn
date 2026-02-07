@@ -6,9 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://dbar3k4dicv32" path="res://menu/Quit.tscn" id="2_jc45y"]
 [ext_resource type="PackedScene" uid="uid://b2hk8xm2wxuyf" path="res://menu/Start.tscn" id="4_jc45y"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jc45y"]
+sky_top_color = Color(0.019607844, 0.0627451, 0.31764707, 1)
+sky_horizon_color = Color(0.86996704, 0.873534, 0.88066304, 1)
+ground_bottom_color = Color(0.40392157, 0.40392157, 0.41568628, 1)
+ground_horizon_color = Color(0.9367954, 0.93856835, 0.9421113, 1)
+sun_angle_max = 36.26
+
+[sub_resource type="Sky" id="Sky_s8mfa"]
+sky_material = SubResource("ProceduralSkyMaterial_jc45y")
+
 [sub_resource type="Environment" id="Environment_1x3cv"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0.0019063628, 0.00024835469, 0.46187192, 1)
+sky = SubResource("Sky_s8mfa")
 
 [sub_resource type="Animation" id="Animation_1x3cv"]
 length = 0.001

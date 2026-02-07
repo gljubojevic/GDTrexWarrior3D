@@ -10,16 +10,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_back"):
+	if Input.is_action_just_released("move_forward") or Input.is_action_just_released("move_back"):
 		isStart = !isStart
 		%Start.select(isStart)
 		%Quit.select(!isStart)
 
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_released("ui_accept"):
 		if isStart:
 			get_tree().change_scene_to_file("res://levels/arena01.tscn")
 		else:
 			get_tree().quit()
 
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_released("ui_cancel"):
 		get_tree().quit()
