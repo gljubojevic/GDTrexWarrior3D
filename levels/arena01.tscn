@@ -29,15 +29,6 @@ enemy_to_spawn = ExtResource("3_x3w1s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.7127, 0, 129.7831)
 enemy_to_spawn = ExtResource("3_x3w1s")
 
-[node name="LabelScore" type="Label" parent="." unique_id=643914298]
-unique_name_in_owner = true
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 387.0
-offset_bottom = 107.0
-text = "Score: 0"
-label_settings = ExtResource("4_vktri")
-
 [node name="Wall" type="CSGTorus3D" parent="." unique_id=1744128105]
 use_collision = true
 inner_radius = 195.0
@@ -63,6 +54,15 @@ environment = SubResource("Environment_srbc2")
 [node name="Player" parent="." unique_id=1369698572 instance=ExtResource("1_1qeyn")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="LabelScore" type="Label" parent="." unique_id=643914298]
+unique_name_in_owner = true
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 387.0
+offset_bottom = 107.0
+text = "Score: 0"
+label_settings = ExtResource("4_vktri")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2006635064]
 anchors_preset = 1
@@ -90,6 +90,32 @@ theme_override_fonts/font = ExtResource("5_uubbr")
 theme_override_font_sizes/font_size = 32
 value = 100.0
 rounded = true
+
+[node name="GameOver" type="Panel" parent="." unique_id=1899200270]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameOver" unique_id=1156860590]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -361.5
+offset_top = -59.5
+offset_right = 361.5
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_uubbr")
+theme_override_font_sizes/font_size = 256
+text = "Game Over"
+horizontal_alignment = 1
 
 [connection signal="enemy_spawned" from="EnemySpawner1" to="." method="_on_enemy_spawner_3d_enemy_spawned"]
 [connection signal="enemy_spawned" from="EnemySpawner2" to="." method="_on_enemy_spawner_3d_enemy_spawned"]

@@ -4,6 +4,9 @@ var isStart:bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# check paused when return to main menu
+	if get_tree().paused:
+		get_tree().paused = false
 	%Start.select(isStart)
 	%Quit.select(!isStart)
 #	pass # Replace with function body.

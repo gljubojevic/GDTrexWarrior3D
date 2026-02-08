@@ -17,6 +17,8 @@ const DEFAULT_SPAWN_WAIT:float = 5.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# nothing spawned jet
+	enemies_spawned = 0
 	# randomize timer start and start it
 	%Timer.wait_time = randf_range(DEFAULT_SPAWN_WAIT/2, DEFAULT_SPAWN_WAIT)
 	%Timer.start()
