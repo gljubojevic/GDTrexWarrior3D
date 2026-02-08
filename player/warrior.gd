@@ -21,6 +21,7 @@ var first_person_rot: Vector3 = Vector3(0, -180, 0)
 var third_person_pos: Vector3 = Vector3(0, 10, -10)
 var third_person_rot: Vector3 = Vector3(-25, -180, 0)
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set("mouse_mode", Input.MOUSE_MODE_CAPTURED)
@@ -35,6 +36,7 @@ func _process(delta: float) -> void:
 		rotation_degrees.z += delta * 10
 	if abs(rotation_degrees.z) < 0.1:
 		rotation_degrees.z = 0
+	camera_shake(delta)
 
 func _physics_process(delta: float) -> void:
 	const SPEED = 30
@@ -94,6 +96,25 @@ func camera_position():
 		%Camera3D.position = third_person_pos
 		%Camera3D.rotation_degrees = third_person_rot
 
+
+# The starting range of possible offsets using random values
+var CAMERA_SHAKE_STRENGTH_DEFAULT: float = 0.05
+# Multiplier for lerping the shake strength to zero
+var CAMERA_SHAKE_DECAY_RATE: float = 1.0
+# camera shake
+var camera_shake_strength:float = 0.0
+
+func camera_shake_trigger() -> void:
+	if is_camera_first_person:
+		camera_shake_strength = CAMERA_SHAKE_STRENGTH_DEFAULT
+
+func camera_shake(delta:float) -> void:
+	if camera_shake_strength == 0:
+		return
+	camera_shake_strength = lerp(camera_shake_strength, 0.0, delta * CAMERA_SHAKE_DECAY_RATE)
+	%Camera3D.h_offset = randf_range(-camera_shake_strength, camera_shake_strength)
+	%Camera3D.v_offset = randf_range(-camera_shake_strength, camera_shake_strength)
+
 func shoot(gun:Marker3D):
 	# preload bullet scene on game start
 	const BULLET_3D = preload("uid://cd3uvgrh2l5nf")
@@ -116,10 +137,12 @@ func take_damage(value: float):
 	# do damage
 	energy -= value
 	if energy > 0:
+		camera_shake_trigger()
 		hit.emit()
 		damage_sound.play()
 		return
 	# start die process with some animation
 	energy = 0
+	camera_shake_trigger()
 	died.emit()		# emit when died
 	die_sound.play()
