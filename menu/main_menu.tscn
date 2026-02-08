@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ble3pcxtxuv2j" path="res://menu/logo.tscn" id="2_1x3cv"]
 [ext_resource type="PackedScene" uid="uid://dbar3k4dicv32" path="res://menu/Quit.tscn" id="2_jc45y"]
 [ext_resource type="PackedScene" uid="uid://b2hk8xm2wxuyf" path="res://menu/Start.tscn" id="4_jc45y"]
+[ext_resource type="FontFile" uid="uid://rkfjqnqlunle" path="res://fonts/spacerangerbold.ttf" id="6_s8mfa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jc45y"]
 sky_top_color = Color(0.019607844, 0.0627451, 0.31764707, 1)
@@ -99,3 +100,45 @@ light_size = 1.0
 libraries/ = SubResource("AnimationLibrary_jc45y")
 libraries/MenuAnims = SubResource("AnimationLibrary_0tw43")
 autoplay = &"MenuAnims/light_move"
+
+[node name="Help" type="Panel" parent="." unique_id=2117917271]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -408.0
+offset_right = 576.0
+offset_bottom = -40.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Help" unique_id=217858252]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelControls" type="Label" parent="Help/VBoxContainer" unique_id=355819283]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_s8mfa")
+theme_override_font_sizes/font_size = 64
+text = "Controls:"
+
+[node name="LabelAllControls" type="Label" parent="Help/VBoxContainer" unique_id=43201542]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_s8mfa")
+theme_override_font_sizes/font_size = 32
+text = "Move:
+Forward:	W / Up arrow
+Back:	S / Down arrow
+Left:	A / Left arrow
+Right:	D / Right arrow
+Mouse:	Change direction
+Fire:	Enter / Left mouse
+Jump:	Space
+Camera:	C"
+tab_stops = PackedFloat32Array(64, 128)
