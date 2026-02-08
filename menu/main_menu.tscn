@@ -63,6 +63,22 @@ _data = {
 &"light_move": SubResource("Animation_s8mfa")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8mfa"]
+bg_color = Color(0.16470589, 0.16470589, 0.16470589, 0.6117647)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+
 [node name="MainMenu" type="Node3D" unique_id=521988686]
 script = ExtResource("1_jc45y")
 
@@ -112,6 +128,7 @@ offset_bottom = -40.0
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_s8mfa")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Help" unique_id=217858252]
 layout_mode = 1
