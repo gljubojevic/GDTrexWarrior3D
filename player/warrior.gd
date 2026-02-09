@@ -15,7 +15,7 @@ signal hit()
 # flag for camera mode
 var is_camera_first_person: bool = true
 # Camera first person position
-var first_person_pos: Vector3 = Vector3(0, 2.5, 2.5)
+var first_person_pos: Vector3 = Vector3(0, 3.5, 2.5)
 var first_person_rot: Vector3 = Vector3(0, -180, 0)
 # Camera third person position
 var third_person_pos: Vector3 = Vector3(0, 10, -10)
@@ -98,7 +98,7 @@ func camera_position():
 
 
 # The starting range of possible offsets using random values
-var CAMERA_SHAKE_STRENGTH_DEFAULT: float = 0.05
+var CAMERA_SHAKE_STRENGTH_DEFAULT: float = 0.03
 # Multiplier for lerping the shake strength to zero
 var CAMERA_SHAKE_DECAY_RATE: float = 1.0
 # camera shake

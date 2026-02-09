@@ -10,6 +10,7 @@ signal died()
 @onready var shoot_sound: AudioStreamPlayer3D = $ShootSound
 @onready var timer_dead_remove: Timer = %TimerDeadRemove
 @onready var timer_shoot: Timer = $TimerShoot
+@onready var ray_cast_3d: RayCast3D = %RayCast3D
 
 var energy: float = 100.0
 var speed = randf_range(15.0, 20.0)
@@ -24,6 +25,9 @@ const MIN_DISTANCE_TO_PLAYER:float = 40.0
 #	pass
 
 func _physics_process(delta: float) -> void:
+	# wait till drops on floor to start moving
+	if !ray_cast_3d.is_colliding():
+		return
 	var direction = global_position.direction_to(player.global_position)
 	direction.y = 0.0
 	var angle_to_player = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP)

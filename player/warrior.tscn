@@ -8,21 +8,22 @@
 [ext_resource type="AudioStream" uid="uid://b3hd04gfxe2k6" path="res://sound/explosion.wav" id="6_oftww"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bup8o"]
-size = Vector3(11, 2, 9)
+size = Vector3(11, 4, 9)
 
 [node name="Player" type="CharacterBody3D" unique_id=466323548]
 script = ExtResource("1_bup8o")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=523777214]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 2.5, 2.5)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 3.5, 2.5)
 current = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=651193975]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_bup8o")
 
 [node name="light_fighter" parent="." unique_id=1481560716 instance=ExtResource("1_hq7dw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Gun1" type="Marker3D" parent="light_fighter" unique_id=1621552862]
 unique_name_in_owner = true
