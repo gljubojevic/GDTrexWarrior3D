@@ -8,3 +8,6 @@ Demo: https://gljubojevic.github.io/GDTrexWarrior3D/
 - Amiga Trex Warrior: https://www.youtube.com/watch?v=3BwDBHzHIqc
 - [godot-ci - build on github](https://github.com/abarichello/godot-ci)
 - Sound effects from https://pixabay.com/
+- Interesting explosion https://github.com/Arnklit/godot_particle_flipbook_smoothing
+- VFX https://www.youtube.com/watch?v=htRjt505sPg
+- VFX Examples https://github.com/Brackeys/vfx-in-godot
