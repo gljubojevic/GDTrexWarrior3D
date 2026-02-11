@@ -14,18 +14,29 @@ signal hit()
 
 # flag for camera mode
 var is_camera_first_person: bool = true
+# Multiplier for lerping camera move
+var CAMERA_MOVE_RATE: float = 1.0
+# Weight for moving camera
+var camera_move_weight: float = 0.0
+
 # Camera first person position
 var first_person_pos: Vector3 = Vector3(0, 3.5, 2.5)
-var first_person_rot: Vector3 = Vector3(0, -180, 0)
+var first_person_rot: Vector3 = Vector3(0, 180, 0)
 # Camera third person position
 var third_person_pos: Vector3 = Vector3(0, 10, -10)
-var third_person_rot: Vector3 = Vector3(-25, -180, 0)
+var third_person_rot: Vector3 = Vector3(-25, 180, 0)
 
+# Camera desired position
+var desired_camera_pos: Vector3 = first_person_pos
+var desired_camera_rot: Vector3 = first_person_rot
+# Camera current position
+var current_camera_pos: Vector3 = first_person_pos
+var current_camera_rot: Vector3 = first_person_rot
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set("mouse_mode", Input.MOUSE_MODE_CAPTURED)
-	camera_position()
+	#camera_position()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -36,6 +47,7 @@ func _process(delta: float) -> void:
 		rotation_degrees.z += delta * 10
 	if abs(rotation_degrees.z) < 0.1:
 		rotation_degrees.z = 0
+	camera_move(delta)
 	camera_shake(delta)
 
 func _physics_process(delta: float) -> void:
@@ -87,15 +99,29 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action("ui_cancel"):
 		Input.set("mouse_mode", Input.MOUSE_MODE_VISIBLE)
 
+
 func camera_position():
 	%Reticle.visible = is_camera_first_person
+	camera_move_weight = 1.0
+	current_camera_pos = %Camera3D.position
+	current_camera_rot = %Camera3D.rotation_degrees
 	if is_camera_first_person:
-		%Camera3D.position = first_person_pos
-		%Camera3D.rotation_degrees = first_person_rot
+		desired_camera_pos = first_person_pos
+		desired_camera_rot = first_person_rot
+		#%Camera3D.position = first_person_pos
+		#%Camera3D.rotation_degrees = first_person_rot
 	else:
-		%Camera3D.position = third_person_pos
-		%Camera3D.rotation_degrees = third_person_rot
+		desired_camera_pos = third_person_pos
+		desired_camera_rot = third_person_rot
+		#%Camera3D.position = third_person_pos
+		#%Camera3D.rotation_degrees = third_person_rot
 
+func camera_move(delta:float):
+	if camera_move_weight == 0:
+		return
+	camera_move_weight = lerp(camera_move_weight, 0.0, delta * CAMERA_MOVE_RATE)
+	%Camera3D.position = lerp(current_camera_pos, desired_camera_pos, 1.0 - camera_move_weight)
+	%Camera3D.rotation_degrees = lerp(current_camera_rot, desired_camera_rot, 1.0 - camera_move_weight)
 
 # The starting range of possible offsets using random values
 var CAMERA_SHAKE_STRENGTH_DEFAULT: float = 0.03
