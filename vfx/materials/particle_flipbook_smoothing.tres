@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cq2bbcau2wujs"]
+
+[ext_resource type="Shader" uid="uid://n1toy08jvion" path="res://vfx/shaders/particle_flipbook_smoothing.gdshader" id="1_era7n"]
+[ext_resource type="Texture2D" uid="uid://oxqwk7jbyu0k" path="res://vfx/textures/flipbook/explosion_flipbook_alb.png" id="2_ospxj"]
+[ext_resource type="Texture2D" uid="uid://dxrcdtp1lpfox" path="res://vfx/textures/flipbook/explosion_flipbook_flowmap.png" id="3_rxukh"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_era7n")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_ospxj")
+shader_parameter/texture_flow = ExtResource("3_rxukh")
+shader_parameter/particles_anim_h_frames = 5
+shader_parameter/particles_anim_v_frames = 5
+shader_parameter/particles_anim_loop = false
+shader_parameter/smoothing = true
+shader_parameter/flow_strength = 0.015

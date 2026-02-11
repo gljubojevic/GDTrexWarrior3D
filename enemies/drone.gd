@@ -49,6 +49,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		timer_shoot.stop()
 
+func explode():
+	#const EXPLOSION = preload("uid://csl2wl3op5ty6")
+	#var explode = EXPLOSION.instantiate()
+	const EXPLOSION_01 = preload("uid://cs7drg2wm47ls")
+	var explode = EXPLOSION_01.instantiate()
+	add_child(explode)
+	explode.global_position = global_position
 
 # reduce energy when hit or die
 func take_damage(value: float):
@@ -64,12 +71,16 @@ func take_damage(value: float):
 	# start die process with some animation
 	energy = 0
 	set_physics_process(false)
-	var direction = player.global_position.direction_to(global_position)
-	var random_upward_force = Vector3.UP * randf_range(5.0, 15.0)
-	apply_central_impulse(direction.rotated(Vector3.UP, randf_range(-0.2, 0.2)) * 20.0 + random_upward_force)
+	die_sound.play()
+	#var direction = player.global_position.direction_to(global_position)
+	#var random_upward_force = Vector3.UP * randf_range(5.0, 15.0)
+	#apply_central_impulse(direction.rotated(Vector3.UP, randf_range(-0.2, 0.2)) * 20.0 + random_upward_force)
+	# stop shooting
+	if !timer_shoot.is_stopped():
+		timer_shoot.stop()
 	timer_dead_remove.start()	# start timer to remove
 	died.emit()					# emit when died
-	die_sound.play()
+	explode()					# show explosion
 
 # remove from scene
 func _on_timer_dead_remove_timeout() -> void:

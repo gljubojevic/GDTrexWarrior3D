@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cs7drg2wm47ls"]
+
+[ext_resource type="Script" uid="uid://b1wiji5muh16u" path="res://vfx/explosion01.gd" id="1_6n4cq"]
+[ext_resource type="Material" uid="uid://cq2bbcau2wujs" path="res://vfx/materials/particle_flipbook_smoothing.tres" id="1_miob6"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2yxnv"]
+emission_shape = 1
+emission_sphere_radius = 0.25
+angle_min = -19.99999
+angle_max = 20.000011
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+damping_min = 1.0
+damping_max = 1.0
+scale_max = 2.0
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.049999975
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_2yxnv"]
+material = ExtResource("1_miob6")
+size = Vector2(20, 20)
+
+[node name="Explosion01" type="Node3D" unique_id=608857993]
+script = ExtResource("1_6n4cq")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1085432219]
+unique_name_in_owner = true
+emitting = false
+lifetime = 2.0
+one_shot = true
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_2yxnv")
+draw_pass_1 = SubResource("QuadMesh_2yxnv")
