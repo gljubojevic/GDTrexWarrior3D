@@ -1,6 +1,9 @@
 extends Node3D
 
-const MAX_ACTIVE_ENEMIES:int = 3
+# Max active enemies in arena
+const MAX_ACTIVE_ENEMIES:int = 2
+# default timer wait to spawn new enemy
+const DEFAULT_SPAWN_WAIT:float = 10.0
 
 # define signal when new enemy is created
 signal enemy_spawned(enemy)
@@ -12,8 +15,6 @@ signal enemy_spawned(enemy)
 # sound player for spawned sounds
 @onready var spawned_sound: AudioStreamPlayer3D = $SpawnedSound
 
-# default timer wait to spawn new enemy
-const DEFAULT_SPAWN_WAIT:float = 5.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
