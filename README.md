@@ -11,3 +11,4 @@ Demo: https://gljubojevic.github.io/GDTrexWarrior3D/
 - Interesting explosion https://github.com/Arnklit/godot_particle_flipbook_smoothing
 - VFX https://www.youtube.com/watch?v=htRjt505sPg
 - VFX Examples https://github.com/Brackeys/vfx-in-godot
+- Particle controls plugin https://github.com/Brackeys/brackeys-particle-controls
