@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 	const SPEED = 30
 	# get direction movement from actions
 	var input_direction_2d = Input.get_vector(
-		"move_left","move_right", "move_back", "move_forward"
+		"move_right", "move_left", "move_back", "move_forward"
 	)
 	# create movement direction based on actions
 	var input_direction_3d = Vector3(
