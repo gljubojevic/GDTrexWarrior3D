@@ -39,7 +39,7 @@ jobs:
           mkdir -v -p build/windows
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Windows Desktop" "$EXPORT_DIR/windows/$EXPORT_NAME.exe"
+          godot --headless --verbose --export-release "Windows Desktop" "$EXPORT_DIR/windows/$EXPORT_NAME-x64-Win.zip"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -65,7 +65,7 @@ jobs:
           mkdir -v -p build/linux
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Linux" "$EXPORT_DIR/linux/$EXPORT_NAME.x86_64"
+          godot --headless --verbose --export-release "Linux" "$EXPORT_DIR/linux/$EXPORT_NAME-x64-Linux.zip"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -125,7 +125,7 @@ jobs:
           mkdir -v -p build/mac
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "macOS" "$EXPORT_DIR/mac/$EXPORT_NAME.zip"
+          godot --headless --verbose --export-release "macOS" "$EXPORT_DIR/mac/$EXPORT_NAME-MacOs.zip"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -171,8 +171,8 @@ jobs:
         with:
           files: |
             ./artifacts/windows/*.zip
-            #./artifacts/web/*         # Uncomment if web export is enabled
             ./artifacts/mac/*.zip
             ./artifacts/linux/*.zip
+            #./artifacts/web/*         # Uncomment if web export is enabled
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
