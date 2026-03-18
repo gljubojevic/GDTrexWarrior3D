@@ -12,3 +12,5 @@ build/web/*
 !build/web/coi-serviceworker.js
 build/windows/*
 !build/windows/README.md
+build/linux/*
+!build/linux/README.md
