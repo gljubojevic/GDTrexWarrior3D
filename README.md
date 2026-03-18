@@ -2,6 +2,13 @@
 This is learning Godot try to create 3D game similar to Amiga Trex Warrior
 Demo: https://gljubojevic.github.io/GDTrexWarrior3D/
 
+## Release create
+To create release, create and push tag, workflow will be triggered
+```
+git tag v1.0.0
+git push origin v1.0.0
+```
+
 ## Resources
 - Godot 3D Full tutorial: https://www.gdquest.com/library/first_3d_game_godot4_arena_fps/
 - Godot 3D Tutorial Part 1: https://www.youtube.com/watch?v=NJJNWGD25rg
